@@ -8,6 +8,7 @@
 // Provide a static navbar from which we expand to create full-width, fixed, and
 // other navbar variations.
 
+@import "media";
 .navbar {
   position: relative;
   min-height: @navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
@@ -51,7 +52,7 @@
   overflow-x: visible;
   padding-right: @navbar-padding-horizontal;
   padding-left:  @navbar-padding-horizontal;
-  border-top: 1px solid transparent;
+  //border-top: 1px solid transparent;
   box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
   &:extend(.clearfix all);
   -webkit-overflow-scrolling: touch;
@@ -234,7 +235,8 @@
 
   > li > a {
     padding-top:    10px;
-    padding-bottom: 10px;
+    //padding-bottom: 10px;
+    padding-bottom: 0px;
     line-height: @line-height-computed;
   }
 
@@ -420,6 +422,8 @@
       }
     }
     > .active > a {
+        text-decoration: none;
+        border-bottom: 1px solid #737373;
       &,
       &:hover,
       &:focus {
@@ -657,4 +661,148 @@
       }
     }
   }
+}
+
+
+
+#navbar-primary.navbar-default {
+  background: transparent;
+  border: none;
+  .navbar-nav { 
+    width: 100%;
+    text-align: center;
+    > li {
+      display: inline-block;
+      padding-bottom:0px;
+      float: none;
+      > a {
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-bottom:0px;
+        margin-left:15px;
+        margin-right:15px;
+        }
+    }
+  }
+}
+
+header{
+    padding-top:11px;
+    text-align:center;
+}
+
+header[role="banner"] {
+  #logo-main {
+    text-align:center;
+    margin: 20px auto;
+  }
+
+  #logo-main2 {
+   margin-left:auto;
+   margin-right:auto;
+   padding-left:15px;
+   padding-right:15px;
+  }
+}
+
+@media (max-width: @screen-sm) {
+
+#navbar-primary.navbar-default {
+  background: transparent;
+  border: none;
+  .navbar-nav { 
+    width: 100%;
+    text-align: center;
+    margin-right:0px;
+    margin-left:0px;
+    > li {
+      display: block;
+      padding-bottom:0px;
+      float: none;
+      border-bottom: 1px solid #a6a6a6;
+      > a {
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-bottom:10px;
+        margin-left:15px;
+        margin-right:15px;
+        }
+    }
+     > .active > a {
+        text-decoration: none;
+        border-bottom: none;
+        color:#000;    
+    }
+  }
+}
+
+.navbar-toggle {
+      border: none;
+      outline: none;
+      float:none;
+    }
+
+.navbar-collapse{
+    border-top:none;
+    box-shadow:none;
+}
+    
+}
+
+.navbar-toggle {
+  border: none;
+  background: transparent !important;
+  
+  &:hover {
+    background: transparent !important;
+  }
+
+  .icon-bar {
+    width: 22px;
+    transition: all 0.2s;
+  }
+  .top-bar {
+    transform: rotate(45deg);
+    transform-origin: 10% 10%;
+  }
+  .middle-bar {
+    opacity: 0;
+  }
+  .bottom-bar {
+    transform: rotate(-45deg);
+    transform-origin: 10% 90%;
+  }
+
+  &.collapsed {
+    .top-bar {
+      transform: rotate(0);      
+    }
+    .middle-bar {
+      opacity: 1;
+    }
+    .bottom-bar {
+      transform: rotate(0);
+    }
+  }
+}
+
+.icon-bar {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+#logo-main2
+{
+   display: none;
+}
+
+@media only screen and (max-width: @screen-md){ //some value
+   #logo-main {
+     display: none;
+   }
+
+   #logo-main2 {
+     display: block;
+   }
 }

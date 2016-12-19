@@ -39,3 +39,6 @@ docs/.jekyll-metadata
 # Folders to ignore
 bower_components
 node_modules
+
+# Theme css folder that prepros wants to create
+css/*

@@ -1,4 +1,4 @@
-//
+﻿//
 // Carousel
 // --------------------------------------------------
 
@@ -102,7 +102,7 @@
   font-size: @carousel-control-font-size;
   color: @carousel-control-color;
   text-align: center;
-  text-shadow: @carousel-text-shadow;
+  text-shadow: #fff;
   background-color: rgba(0, 0, 0, 0); // Fix IE9 click-thru bug
   // We can't have this transition here because WebKit cancels the carousel
   // animation if you trip this while in the middle of another animation.
@@ -229,7 +229,8 @@
   padding-bottom: 20px;
   color: @carousel-caption-color;
   text-align: center;
-  text-shadow: @carousel-text-shadow;
+  /*text-shadow: @carousel-text-shadow;*/
+  text-shadow: #fff;
   & .btn {
     text-shadow: none; // No shadow for button elements in carousel-caption
   }
@@ -268,6 +269,11 @@
   .carousel-caption {
     padding-bottom: 30px;
   }
+
+  // Move up the indicators
+  /*.carousel-indicators {
+    bottom: 20px;
+  }*/
 }
 
   .carousel-indicators {
@@ -279,7 +285,11 @@
     border:none;
 }
 
-.carousel-caption h3, .carousel-caption h4 {
+#f1 h3, #f1 h4, 
+#f2 h3, #f2 h4, 
+#f3 h3, #f3 h4,
+#f4 h3, #f4 h4
+{
     color:#fff;
     font-size:@carousel-control-font-size;
     visibility: hidden;
@@ -290,7 +300,11 @@
     font-size:16px;
 }
 
-.active:hover .carousel-caption h3, .active:hover .carousel-caption h4 { 
+#f1:hover .carousel-caption h3, #f1:hover .carousel-caption h4,
+#f2:hover .carousel-caption h3, #f2:hover .carousel-caption h4,
+#f3:hover .carousel-caption h3, #f3:hover .carousel-caption h4,
+#f4:hover .carousel-caption h3, #f4:hover .carousel-caption h4
+ { 
     visibility: visible; 
 }
 
@@ -299,10 +313,12 @@
     transition: all .1s ease-in-out;
 }
 
-
-.item:hover .middleimage, .item:hover fimage, .item:hover fimage secimage
+#f1:hover .middleimage, #f1:hover .fimage, #f1:hover .secimage,
+#f2:hover .middleimage, #f2:hover .fimage, #f2:hover .secimage,
+#f3:hover .middleimage, #f3:hover .fimage, #f3:hover .secimage,
+#f4:hover .middleimage, #f4:hover .fimage, #f4:hover .secimage
 {
-    -moz-filter: blur(1px);
+     -moz-filter: blur(1px);
     -webkit-filter: blur(1px);
     filter: blur(1px);
     transition: all .1s ease-in; 
@@ -316,6 +332,7 @@
     background: none;
 }
 
-.gallery{
-    margin-top:0px;
+[class*="col-"]
+{
+    margin-bottom:0px;
 }
